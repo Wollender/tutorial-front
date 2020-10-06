@@ -1,1 +1,1 @@
-work: npm install -g webpack-dev-server webpack webpack-cli extract-text-webpack-plugin && npm run dev
+web: npm install -g webpack-dev-server webpack webpack-cli extract-text-webpack-plugin && npm run dev
