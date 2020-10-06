@@ -1,1 +1,1 @@
-web: npm install -g webpack-dev-server && npm run dev
+web: npm install -g webpack-dev-server webpack && npm run dev
