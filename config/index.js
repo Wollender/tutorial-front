@@ -4,6 +4,7 @@
 
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const HOST = process.env.HOST || 'localhost'
 module.exports = {
   dev: {
 
@@ -22,7 +23,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: HOST, // can be overwritten by process.env.HOST
     // host: '192.168.1.109', // can be overwritten by process.env.HOST
     port: PORT, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
