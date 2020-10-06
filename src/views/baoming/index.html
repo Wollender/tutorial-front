@@ -1,0 +1,60 @@
+<div class="baoming">
+  <div class="radiu-box">
+    <el-radio v-model="radio" label="1">澳币</el-radio>
+    <el-radio v-model="radio" label="2">人民币</el-radio>
+  </div>
+  <el-row :gutter="10" class="input-box">
+    <el-col :span="7">
+      <span>每门课减免：</span>
+      <el-input v-model="input1" placeholder="请输入"></el-input>
+    </el-col>
+    <el-col :span="7" v-if="radio != 1">
+        <span>当前汇率是：</span>
+        <el-input v-model="input2" placeholder="请输入"></el-input>
+    </el-col>
+    <el-col :span="7" v-if="radio != 1">
+      <span>人民币折扣是：</span>
+      <el-input v-model="input3" placeholder="请输入"></el-input>
+    </el-col>
+    <el-col :span="3" class="alignRight">
+     <el-button type="primary">计算</el-button>
+    </el-col>
+  </el-row>
+  <el-table
+    ref="multipleTable"
+    stripe
+    :data="tableData"
+    tooltip-effect="dark"
+    style="width: 100%"
+    @selection-change="handleSelectionChange">
+      <el-table-column
+      type="selection"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      label="#"
+      type="index"
+      width="150">
+    </el-table-column>
+    <el-table-column
+      prop="courseName"
+      label="科目" show-overflow-tooltip>
+    </el-table-column>
+    <el-table-column
+      label="价格">
+        <template slot-scope="scope">
+        <span>{{ scope.row.price }}刀</span>
+      </template> 
+    </el-table-column>
+  </el-table>
+  <div class="price-box">
+    <div v-for="(item,index) in multipleSelection" :key="index">
+      <span>选中当前的课程是：{{item.courseName}} ，</span>
+      <span>价格是：{{item.price}} ，</span>
+      <span v-if="input1">使用的优惠减免：{{input1}} ，</span>
+      <span>实际价格：{{item.price}} ，</span>
+      <span>单科人民币：{{item.price}}</span>
+    </div>
+    <div v-if="multipleSelection && multipleSelection.length>0">总价为：</div>
+  </div>
+</div>

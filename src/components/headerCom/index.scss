@@ -1,0 +1,26 @@
+.header-box{
+  width:100%;
+  padding:0% 8%;
+  overflow: hidden;
+  background: #f8f9fa;
+  // color: #fff;
+  height:48px;
+  line-height:48px;
+  box-sizing: border-box;
+  .logo{
+    >span{
+      padding:0px 20px;
+    }
+  }
+  nav{
+    >a,.el-dropdown{
+      margin-right:20px;
+    }
+    >a:nth-last-of-type(1){
+      margin-right:0px;
+    }
+    >a:hover,.router-link-active{
+        border-bottom: 2px solid #409EFF;
+    }
+  }
+}

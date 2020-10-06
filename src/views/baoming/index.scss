@@ -1,0 +1,31 @@
+.baoming{
+  .radiu-box{
+    width:100%;
+
+  }
+  .el-table td, .el-table th{
+    text-align: center;
+  }
+  .input-box{
+    margin:26px 0px 10px;
+  }
+  .el-input{
+    width:120px;
+  }
+  .price-box{
+    text-align: center;
+    padding-top: 15px;
+    >div{
+      line-height: 36px;
+    }
+    // span{
+    //   padding-right:50px;
+    // }
+  }
+  // .from-box{
+  //   >div{
+  //     float: left;
+      
+  //   }
+  // }
+}

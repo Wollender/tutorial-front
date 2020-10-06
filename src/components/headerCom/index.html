@@ -1,0 +1,45 @@
+<div class="header-box">
+  <el-row :gutter="20">
+    <el-col :xs="15" :sm="15" :md="15" :lg="15">
+      <nav>
+        <span class="logo">红黑树学院 <span> | </span></span> 
+        <router-link to="/home">Home</router-link>
+        <el-dropdown trigger="click">
+          <span class="el-dropdown-link">
+            <router-link to="/baomingbox">学院报名</router-link>
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item icon="el-icon-circle-check">
+               <router-link to="/baomingbox/form">表单页</router-link>
+            </el-dropdown-item>
+            <!--在这里新增二级路由页面-->
+            <!--<el-dropdown-item icon="el-icon-circle-check">
+               <router-link to="/home">首页</router-link>
+            </el-dropdown-item>-->
+          </el-dropdown-menu>
+        </el-dropdown>
+        <a href="javascript:;">关于我们</a>
+      </nav>
+    </el-col>
+    <el-col :xs="5" :sm="5" :md="5" :lg="5">
+      <el-input
+        placeholder="请输入内容"
+        size="small"
+        prefix-icon="el-icon-search"
+        v-model="input2">
+      </el-input>
+    </el-col>
+    <el-col :xs="4" :sm="4" :md="4" :lg="4" class="alignRight">
+      <router-link to="/login">登录</router-link> | 
+      <router-link to="/register">注册</router-link>
+      
+      <!--<el-row :gutter="8">
+        <el-col :span="16"><div class="user-name">{{this.$store.state.userName}}</div></el-col>
+        <el-col :span="8"><div class="colroF" @click="loginOut">退出</div></el-col>
+      </el-row>-->
+    </el-col>
+  </el-row>
+
+  
+</div>

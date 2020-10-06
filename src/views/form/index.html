@@ -1,0 +1,72 @@
+<div class="form-page">
+  <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+    <el-tab-pane label="创建课程" name="first">
+      <div class="form-tab1">
+        <el-form ref="form" :rules="rules" :model="form" label-width="80px">
+          <el-form-item label="课程名称" prop="name">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item label="课程价格"  prop="price">
+            <el-input v-model="form.price"></el-input>
+          </el-form-item>
+          <el-form-item label="课程优惠" prop="discount">
+            <el-input-number v-model="form.discount" @change="handleChange" :min="1" :max="100" label="描述文字"></el-input-number>
+          </el-form-item>
+          <el-form-item label="是否上线" prop="delivery">
+            <el-switch v-model="form.delivery"></el-switch>
+          </el-form-item>
+          <el-form-item label="课程形式" prop="resource">
+            <el-radio-group v-model="form.resource">
+              <el-radio :label="1">线上</el-radio>
+              <el-radio :label="2">现场</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="课程描述" prop="desc">
+            <el-input type="textarea" v-model="form.desc"></el-input>
+          </el-form-item>
+          <div class="btn-box">
+            <el-button type="primary" @click="onSubmit('form')" v-if="isEdit">保存编辑</el-button>
+            <el-button type="primary" @click="onSubmit('form')"  v-else>立即创建</el-button>
+            <el-button @click="resetForm('form')">重置</el-button>
+          </div>
+        </el-form>
+      </div>
+    </el-tab-pane>
+    <el-tab-pane label="课程列表" name="second">
+      <el-table
+        ref="multipleTable"
+        stripe
+        :data="tableData"
+        tooltip-effect="dark"
+        style="width: 100%"
+       >
+        <el-table-column
+          label="#"
+          type="index"
+          width="150">
+        </el-table-column>
+        <el-table-column
+          prop="name"
+          label="科目" show-overflow-tooltip>
+        </el-table-column>
+        <el-table-column
+          label="价格">
+            <template slot-scope="scope">
+            <span>{{ scope.row.price }}刀</span>
+          </template> 
+        </el-table-column>
+        <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button
+            size="mini"
+            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+          <el-button
+            size="mini"
+            type="danger"
+            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+        </template>
+      </el-table-column>
+      </el-table>
+    </el-tab-pane>
+  </el-tabs>
+</div>
